@@ -1,5 +1,5 @@
 
-CREATE DATABASE klarigon
+CREATE DATABASE klarigo
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default

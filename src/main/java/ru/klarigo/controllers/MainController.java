@@ -1,4 +1,4 @@
-package ru.klarigon.controllers;
+package ru.klarigo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homepage(Model model) {
-        model.addAttribute("greeting", "Welcome to Klarigon!");
+        model.addAttribute("greeting", "Welcome to Klarigo!");
         return "index";
     }
 

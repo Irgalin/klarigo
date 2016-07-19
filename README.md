@@ -1,2 +1,2 @@
-# klarigon
-The official website of Klarigon project
+# Klarigo
+The official website of Klarigo project

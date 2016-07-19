@@ -1,4 +1,4 @@
-package ru.klarigon.configs;
+package ru.klarigo.configs;
 
 import java.util.Properties;
 
