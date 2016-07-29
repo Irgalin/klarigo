@@ -34,12 +34,12 @@
                 Klarigo
             </div>
             <div class="search"></div>
-            <div class="lang-switcher">
+            <div>
             <#if currentLanguage == "ru">
-                <a href="?lang=en"><@spring.message code="language.switcher.text"/></a>
+                <a class="lang-switch-link" href="?lang=en"><@spring.message code="lang.switch.link.text"/></a>
             </#if>
             <#if currentLanguage == "en">
-                <a href="?lang=ru"><@spring.message code="language.switcher.text"/></a>
+                <a class="lang-switch-link" href="?lang=ru"><@spring.message code="lang.switch.link.text"/></a>
             </#if>
             </div>
         </div>
