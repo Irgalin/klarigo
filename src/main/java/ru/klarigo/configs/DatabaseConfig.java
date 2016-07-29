@@ -69,8 +69,7 @@ public class DatabaseConfig {
 
     @Bean
     public HibernateTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager =
-                new HibernateTransactionManager();
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }

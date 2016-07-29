@@ -34,21 +34,32 @@
                 Klarigo
             </div>
             <div class="search"></div>
+            <div class="lang-switcher">
+            <#if currentLanguage == "ru">
+                <a href="?lang=en"><@spring.message code="language.switcher.text"/></a>
+            </#if>
+            <#if currentLanguage == "en">
+                <a href="?lang=ru"><@spring.message code="language.switcher.text"/></a>
+            </#if>
+            </div>
         </div>
 
         <ul class="nav" ng-controller="navigationBarController">
             <li class="nav__item">
-                <a class="nav__link" ng-class="{'nav__link--active': isActive('/video')}" href="#/video">Video</a>
+                <a class="nav__link" ng-class="{'nav__link--active': isActive('/video')}"
+                   href="#/video"><@spring.message code="nav.video"/></a>
             </li>
             <li class="nav__item">
-                <a class="nav__link" ng-class="{'nav__link--active': isActive('/blog')}" href="#/blog">Blog</a>
+                <a class="nav__link" ng-class="{'nav__link--active': isActive('/blog')}"
+                   href="#/blog"><@spring.message code="nav.blog"/></a>
             </li>
             <li class="nav__item">
-                <a class="nav__link" ng-class="{'nav__link--active': isActive('/about')}" href="#/about">About</a>
+                <a class="nav__link" ng-class="{'nav__link--active': isActive('/about')}"
+                   href="#/about"><@spring.message code="nav.about"/></a>
             </li>
             <li class="nav__item">
                 <a class="nav__link" ng-class="{'nav__link--active': isActive('/contacts')}"
-                   href="#/contacts">Contacts</a>
+                   href="#/contacts"><@spring.message code="nav.contacts"/></a>
             </li>
         </ul>
 
