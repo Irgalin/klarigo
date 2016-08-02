@@ -1,12 +1,21 @@
 <#ftl encoding="UTF-8">
 <#import "/spring.ftl" as spring />
+
+
+<#macro html>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+    <#nested>
+<html>
+</#macro>
+
+<#macro head>
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Klarigo</title>
@@ -19,12 +28,16 @@
     <script src="/js/app.js"></script>
     <script src="/js/controllers.js"></script>
     <link rel="stylesheet" href="/css/app.css"/>
+    <#nested>
 </head>
+</#macro>
+
+<#macro body mode language>
 <body>
     <script>
-        angular.element(document).ready(function () {
-            location.href = '#/video';
-        });
+        /* angular.element(document).ready(function () {
+             location.href = '#/video';
+         });*/
     </script>
     <div class="wrapper">
 
@@ -35,38 +48,41 @@
             </div>
             <div class="search"></div>
             <div>
-            <#if currentLanguage == "ru">
-                <a class="lang-switch-link" href="?lang=en"><@spring.message code="lang.switch.link.text"/></a>
-            </#if>
-            <#if currentLanguage == "en">
-                <a class="lang-switch-link" href="?lang=ru"><@spring.message code="lang.switch.link.text"/></a>
-            </#if>
+                <#if language == "ru">
+                    <a class="lang-switch-link" href="?lang=en"
+                       target="_self"><@spring.message code="lang.switch.link.text"/></a>
+                </#if>
+                <#if language == "en">
+                    <a class="lang-switch-link" href="?lang=ru"
+                       target="_self"><@spring.message code="lang.switch.link.text"/></a>
+                </#if>
             </div>
         </div>
 
         <ul class="nav" ng-controller="navigationBarController">
             <li class="nav__item">
                 <a class="nav__link" ng-class="{'nav__link--active': isActive('/video')}"
-                   href="#/video"><@spring.message code="nav.video"/></a>
+                   href="/video" target="_self"><@spring.message code="nav.video"/></a>
             </li>
             <li class="nav__item">
                 <a class="nav__link" ng-class="{'nav__link--active': isActive('/blog')}"
-                   href="#/blog"><@spring.message code="nav.blog"/></a>
+                   href="/blog" target="_self"><@spring.message code="nav.blog"/></a>
             </li>
             <li class="nav__item">
                 <a class="nav__link" ng-class="{'nav__link--active': isActive('/about')}"
-                   href="#/about"><@spring.message code="nav.about"/></a>
+                   href="/about" target="_self"><@spring.message code="nav.about"/></a>
             </li>
             <li class="nav__item">
                 <a class="nav__link" ng-class="{'nav__link--active': isActive('/contacts')}"
-                   href="#/contacts"><@spring.message code="nav.contacts"/></a>
+                   href="/contacts" target="_self"><@spring.message code="nav.contacts"/></a>
             </li>
         </ul>
 
-        <div class="content" ng-view>
+        <div class="content">
+            <#nested>
         </div>
         <div class="footer">
         </div>
     </div>
 </body>
-</html>
+</#macro>
