@@ -20,7 +20,6 @@ import ru.klarigo.services.VideoService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(VideoController.class)
-@EnableConfigurationProperties
 public class VideoControllerTest {
 
     @Autowired
